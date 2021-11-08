@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: RM;
+            src: url(unsteadyoversteer.ttf);
+        }
+
+        p {
+            font-family: RM;
+            color: rgb(211, 30, 30);
+            text-transform: uppercase;
+        }
+
+        body {
+            background-color: cornsilk;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>Font Project</h1>
+        <label for="Data"> Enter your Text</label><br>
+        <input type="text" id="textdata">
+        <label for="size">Choose Size</label>
+        <select id="size">
+            <option value="small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+
+        </select>
+        <input type="submit" onclick="hello()">
+        
+
+    </section>
+    <section>
+        <p id="targetP">
+
+
+        </p>
+    </section>
+</body>
+<script>
+    function hello() {
+        if (document.getElementById("size").value == "small") {
+            document.getElementById("targetP").style.fontSize = "30px";
+
+        } else if (document.getElementById("size").value == "Medium") {
+            document.getElementById("targetP").style.fontSize = "60px";
+
+        } else {
+            document.getElementById("targetP").style.fontSize = "80px";
+        }
+        document.getElementById("targetP").innerText = document.getElementById("textdata").value;
+        var x = document.createElement("BUTTON");
+        var t = document.createTextNode("Clear Text");
+        x.appendChild(t);
+        x.onclick = clearText;
+        x.id = "clear",
+            document.body.appendChild(x);
+    }
+    function clearText() {
+        document.getElementById("targetP").innerText = "";
+        document.getElementById("clear").remove();
+        document.getElementById("textdata").value = "";
+    }
+</script>
+
+</html>
